@@ -20,3 +20,13 @@ def sum_of_prime_div(n):
         total *= p
     return total
 
+print("Функция 2. Найти количество нечетных цифр числа, больших 3.")
+def count_odd(n):
+    str_n = str(n)
+    count = 0
+    for i in range(len(str_n)):
+        digit = int(str_n[i])
+        if digit % 2 != 0 and digit > 3:
+            count += 1
+    return count
+
