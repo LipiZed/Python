@@ -30,3 +30,17 @@ def count_odd(n):
             count += 1
     return count
 
+print("Функция 3. Найти произведение таких делителей числа, сумма цифр которых меньше, чем сумма цифр исходного числа.")
+def sum_of_div(n):
+    str_n = str(n)
+    sum_n = sum(int(i) for i in str_n)
+    divs = []
+    for i in range(1, n + 1):
+        if n % i == 0:
+            dig_sum = sum(int(j) for j in str(i))
+            if dig_sum < sum_n:
+                divs.append(i)
+    if not divs:
+        return 0
+    return int(math.prod(divs))
+
