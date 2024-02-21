@@ -46,3 +46,19 @@ def count_sochet(text):
 def sort_count_sochet(strings):
     return sorted(strings, key=count_sochet)
 
+# Задача 10
+
+def count_triple(text):
+    count = 0
+    max_count = 0
+    for i in range(len(text) - 2):
+        if (text[i] == text[i + 2]):
+            count += 1
+    else:
+        max_count = count
+        count = 0
+    return max_count
+
+def sort_count_triple(strings):
+    return sorted(strings, key=count_triple)
+
