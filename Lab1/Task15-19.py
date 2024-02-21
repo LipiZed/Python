@@ -18,3 +18,8 @@ def before_min_in_the_end(list):
     return result_list
 
 
+# Задача 17
+def max_from_interval(list, start_point, end_point):
+    result_list = list[start_point:end_point]
+    return max(result_list)
+
