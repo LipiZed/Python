@@ -23,3 +23,13 @@ def max_from_interval(list, start_point, end_point):
     result_list = list[start_point:end_point]
     return max(result_list)
 
+
+# Задача 18
+def smaller_than_left(list):
+    count = 0
+    for i in range (1, len(list)):
+        if list[i] < list[i - 1]:
+            print("Индекс: " + str(i))
+            count += 1
+    return count
+
