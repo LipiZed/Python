@@ -14,6 +14,7 @@ def find_max_float(text):
     else:
         return None
 
+
 def find_min_rational(text):
     numbers = []
     current_number = ''
@@ -36,4 +37,18 @@ def find_min_rational(text):
         return min(rational_numbers)
     else:
         return None
+
+
+def max_digits_in_a_row(text):
+    numbers = []
+    current_count = 0
+    text = text + " "
+    for char in text:
+        if char.isnumeric():
+            current_count = current_count + 1
+        elif current_count != 0:
+            numbers.append(current_count)
+            current_count = 0
+    return max(numbers)
+
 
