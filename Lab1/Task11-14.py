@@ -62,3 +62,47 @@ def count_triple(text):
 def sort_count_triple(strings):
     return sorted(strings, key=count_triple)
 
+a = int(input("Введите по какому принципу хотите сортировать список строк: "))
+match a:
+    case 1:
+        print("Сортировка по разнице между согласными и гласными")
+        print("Вводите строки, если вы хотите закончить ввод, введите пустую строку: \n")
+        strings = []
+        while True:
+            a = input()
+            if a == "":
+                break
+            strings.append(a)
+        print(sort_by_sogl_glasn(strings))
+    case 2:
+        print("Сортировка в порядке увеличения квадратичного отклонения")
+        print("Вводите строки, если вы хотите закончить ввод, введите пустую строку: \n")
+        strings = []
+        while True:
+            a = input()
+            if a == "":
+                break
+            strings.append(a)
+        print(sort_strings_by_deviation(strings))
+    case 3:
+        print("Сортировка по сочетаниям гласная-согласная и наоборот")
+        print("Вводите строки, если вы хотите закончить ввод, введите пустую строку: \n")
+        strings = []
+        while True:
+            a = input()
+            if a == "":
+                break
+            strings.append(a)
+        print(sort_count_sochet(strings))
+    case 4:
+        print("Сортировка по зеркальным тройкам")
+        print("Вводите строки, если вы хотите закончить ввод, введите пустую строку: \n")
+        strings = []
+        while True:
+            a = input()
+            if a == "":
+                break
+            strings.append(a)
+        print(sort_count_triple(strings))
+    case _:
+        print("Такой задачи нет.")
