@@ -19,13 +19,13 @@ def find_dates(text):
 
 a = int(input("Введите номер задачи которую хотите решать: "))
 match a:
-    case 1:
+    case 2:
         text = input("Введите строку на подсчет русских символов: ")
         print(count_russian_chars(text))
-    case 2:
+    case 3:
         text = input("Введите строку на проверку палиндлрома латинских букв: ")
         print(latin_palindrom(text))
-    case 3:
+    case 4:
         text = input("Введите сроку на поиск дат в формате дд.мм.гг: ")
         print(find_dates(text))
     case _:

@@ -87,7 +87,7 @@ class Triangle:
 
     def is_intersect(self, pentagon):
         if not isinstance(pentagon, Pentagon):
-            raise ValueError("Intersection check is only supported between Triangle and Pentagon objects.")
+            raise ValueError("Проверка пересечения поддерживается только между объектами Треугольник и Пятиугольник")
 
         # Проверяем пересечение каждой стороны треугольника с каждой стороной пятиугольника
         for i in range(3):

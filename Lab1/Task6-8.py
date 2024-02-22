@@ -53,13 +53,13 @@ def max_digits_in_a_row(text):
 
 a = int(input("Введите номер задачи которую хотите решать: "))
 match a:
-    case 1:
+    case 6:
         text = input("Введите строку на поиск максимального вещественного: ")
         print(find_max_float(text))
-    case 2:
+    case 7:
         text = input("Введите строку на поиск минимального реционального: ")
         print(find_min_rational(text))
-    case 3:
+    case 8:
         text = input("Введите сроку на поиск макс кол-ва последовательных цифр")
         print(max_digits_in_a_row(text))
     case _:

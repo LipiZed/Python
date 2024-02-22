@@ -3,6 +3,7 @@ print("Номер варианта первой задачи: " + str(((13 - 1) 
 def same_in_two_lists(list1, list2):
     return sorted(list(set(list1) & set(list2)))
 
+print(same_in_two_lists([1, 2, 3], [2, 3, 4]))
 print("Номер варианта второй задачи: " + str(((13 - 1) % 13) + 1))
 
 

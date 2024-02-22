@@ -33,3 +33,4 @@ def smaller_than_left(list):
             count += 1
     return count
 
+print(before_min_in_the_end([1, 3, 4, 5, -70, 235, 356457, 432]))
