@@ -1,6 +1,7 @@
+#!/usr/bin/env python3
+
 import cgi
 import sqlite3
-
 conn = sqlite3.connect('lab6.db')
 cursor = conn.cursor()
 
@@ -19,5 +20,5 @@ conn.commit()
 print("Content-type: text/html\n")
 print("<html><body>")
 print("<h1>Номер добавлен</h1>")
-print("<p><a href='index.html'>Вернуться к списку номеров</a></p>")
+print("<p><a href='../index.html'>Вернуться к списку номеров</a></p>")
 print("</body></html>")
