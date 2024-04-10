@@ -6,8 +6,6 @@ conn = sqlite3.connect('lab6.db')
 cursor = conn.cursor()
 
 cursor.execute('SELECT * FROM Hotel')
-result = cursor.fetchall()
-print(result)
 doc = minidom.Document()
 
 root = doc.createElement('root')
@@ -27,4 +25,7 @@ for row in cursor.fetchall():
 with open('mytable.xml', 'w') as f:
     f.write(doc.toprettyxml(indent='  '))
 
+cursor.execute('SELECT * FROM Hotel')
+result = cursor.fetchall()
+print(result)
 conn.close()

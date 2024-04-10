@@ -1,0 +1,38 @@
+<?xml version="1.0" ?>
+<root>
+  <row>
+    <col0>1</col0>
+    <col1>Отель Россия</col1>
+    <col2>ул. Пушкина, 10</col2>
+    <col3>+7 (495) 123-45-67</col3>
+    <col4>hotel@rossiya.ru</col4>
+  </row>
+  <row>
+    <col0>2</col0>
+    <col1>Гранд Отель</col1>
+    <col2>ул. Ленина, 25</col2>
+    <col3>+7 (495) 987-65-43</col3>
+    <col4>grandhotel@mail.ru</col4>
+  </row>
+  <row>
+    <col0>3</col0>
+    <col1>Отель Уют</col1>
+    <col2>ул. Горького, 32</col2>
+    <col3>+7 (495) 222-33-55</col3>
+    <col4>uyut@hotel.ru</col4>
+  </row>
+  <row>
+    <col0>4</col0>
+    <col1>Отель Люкс</col1>
+    <col2>ул. Толстого, 18</col2>
+    <col3>+7 (495) 555-77-99</col3>
+    <col4>lux@hotel.ru</col4>
+  </row>
+  <row>
+    <col0>5</col0>
+    <col1>Отель Люкс2</col1>
+    <col2>ул. Толстого, 18</col2>
+    <col3>+7 (495) 555-77-99</col3>
+    <col4>lux@hotel.ru</col4>
+  </row>
+</root>
