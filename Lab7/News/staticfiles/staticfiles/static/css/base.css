@@ -1,0 +1,31 @@
+.scale-item:hover{
+   transform: scale(1.15);
+   transition: all 0.2s ease;
+ }
+
+.scale-item:active{
+   transform: scale(1.15);
+ }
+
+.tab{
+    padding-left:21%;
+}
+
+.truncate {
+    margin: 0;
+    -webkit-line-clamp: 2;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+   }
+
+
+.text-link {
+    text-decoration: none;
+    color: black;
+}
+
+.text-link:hover{
+    color: navy;
+    text-decoration: underline;
+}

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% if user.username == article.author.username %}
+    <h1>Edit</h1>
+    <form action="" method="post"> {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn btn-info ml-2" type="submit">Update</button>
+        <button class = 'btn btn-primary' type = 'reset'>Cancel</button>
+    </form>
+{% else %}
+<div class = 'container'>
+    <div class = 'text-center'>
+        <h1> OOPPS!</h1>
+        <h3> You do not have permission to edit this post</h3>
+        <h3><a href = "{% url 'article_list' %}"> Back to articles</a> </h3>
+    </div>
+</div>
+{% endif %}
+{% endblock %}

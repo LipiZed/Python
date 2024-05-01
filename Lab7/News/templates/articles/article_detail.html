@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="container text-center">
+    <h1> {{ object.title }} </h1>
+        <h4>by {{ object.author }}</h4>
+        <p> {{ object.body }} </p>
+        <p> {{ object.date }}</p>
+        {% if user.username == object.author.username %}
+        <p> <a class = "btn btn-dark scale-item" href = "{% url 'article_edit' article.slug %}">Edit</a>
+        <a class = "btn btn-dark scale-item" href = "{% url 'article_delete' article.slug %}">Delete</a></p>
+        {% endif %}
+        <p> Back to <a class = "text-link" href = "{% url 'article_list' %}">All articles</a></p>
+    <h3> Commentaries </h3>
+</div>
+<div class = 'container'>
+    {% if object.comments.all.count == 0 %}
+    <p class = 'text-muted'> Oop! No one comment :( </p>
+    {% endif %}
+    {% for comment in object.comments.all %}
+    <p> {{ comment.author.username }} <span class = 'text-muted'>{{ comment.date }}</span> - {{ comment }}</p>
+    {% endfor %}
+    {% if user.is_authenticated %}
+    <form action="" method="post" id="comment" name="comment_form">{% csrf_token %}
+        <textarea class = 'd-flex my-2'
+                  rows="5"
+                  cols="60"
+                  name="comment"
+                  placeholder="Add a new comment"
+                  aria-label="comment"
+                  maxlength="500">
+        </textarea>
+        <button class = 'btn btn-dark scale-item' type ='submit'>Add a new comment</button>
+    </form>
+    {% else %}
+    <p> <a class = "btn btn-dark scale-item" href = "{% url 'account_login' %}">Log in</a> if you want to add a comment </p>
+    {% endif %}
+    <p></p>
+</div>
+{% endblock %}

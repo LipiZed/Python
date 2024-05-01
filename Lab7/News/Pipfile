@@ -1,0 +1,21 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django = "==3.2.18"
+asgiref = "==3.6.0"
+beautifulsoup4 = "==4.12.2"
+django-bootstrap-v5 = "==1.0.11"
+django-crispy-forms = "==2.0"
+crispy-bootstrap5 = "*"
+pytz = "==2023.3"
+soupsieve = "==2.4.1"
+sqlparse = "==0.4.4"
+django-allauth = "==0.50.0"
+
+[dev-packages]
+
+[requires]
+python_version = "3.11"

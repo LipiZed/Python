@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block title %}Search{% endblock title %}
+
+{% block content %}
+    <h1 class = 'text-center mb-3'>Search Results by "{{ query }}"</h1>
+    {% if object_list.all.count == 0 %}
+        <p class = 'text-muted text-center'> Oop! No one article found :( </p>
+    {% else %}
+        <div class="sort-controls text-center mb-3">
+            <form class = '' action = "#" method="get">
+                <label for="sort">Sort by:</label>
+                <select name="sort" id="sort">
+                    {% if sort == 'date' %}
+                        <option value="date" selected>Date</option>
+                    {% else %}
+                        <option value="date">Date</option>
+                    {% endif %}
+
+                    {% if sort == 'title' %}
+                        <option value="title" selected>Title</option>
+                    {% else %}
+                        <option value="title">Title</option>
+                    {% endif %}
+
+                    {% if sort == 'author' %}
+                        <option value="author" selected>Author</option>
+                    {% else %}
+                        <option value="author">Author</option>
+                    {% endif %}
+                </select>
+                <select hidden name="q" id="q">
+                    <option selected>{{ query }}</option>
+                </select>
+                <button type="submit" class="btn-success">Sort</button>
+            </form>
+        </div>
+        {% for article in object_list %}
+            <div class = "container">
+                <div class="card">
+                    <div class = "card-header">
+                        <a class = "text-link font-weight-bold" href="{% url 'article_detail' article.slug %}"> {{ article.title }}</a>
+                        <span class = 'text-muted'> {{ article.author }} | {{ article.date }}</span>
+                    </div>
+                    <div class = 'card-body'>
+                        <span class = "truncate"> {{ article.body }} </span>
+                    </div>
+                </div>
+            </div>
+            <br />
+        {% endfor %}
+        <div class="container pagination card text-black text-center border-secondary">
+            <span class="card-body">
+                {% if page_obj.has_previous %}
+                    <a href="?q={{ query }}&sort={{ sort }}&page=1" class = 'text-link'>&laquo; first</a>
+                    <a href="?q={{ query }}&sort={{ sort }}&page={{ page_obj.previous_page_number }}" class="text-link">previous</a>
+                {% endif %}
+
+                <span class="current">
+                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+                </span>
+
+                {% if page_obj.has_next %}
+                    <a href="?q={{ query }}&sort={{ sort }}&page={{ page_obj.next_page_number }}" class="text-link">next</a>
+                    <a href="?q={{ query }}&sort={{ sort }}&page={{ page_obj.paginator.num_pages }}" class="text-link">last &raquo;</a>
+                {% endif %}
+            </span>
+        </div>
+    {% endif %}
+    <p class="text-center"> Back to <a class = "text-link" href = "{% url 'article_list' %}">All articles</a></p>
+{% endblock %}

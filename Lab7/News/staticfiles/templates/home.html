@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %} Home {% endblock %}
+
+{% block content %}
+<div class = "container text-center">
+    <h1 class = "fs-1 fw-bold"> HELLO! </h1>
+    <h2 class = "fs-2">This is my first project on Django</h2>
+    <p class = "fs-2">It`s online newspaper, where you can:</p>
+    <div class = "fs-3 fst-italic text-start tab">
+        <li>Create account</li>
+        <li>Write comments under other people's arcticles</li>
+        <li>Change your password</li>
+        <li>Reset your password if you forgot with using E-mail</li>
+    </div>
+    <p class = "fs-2">Do you want to start?</p>
+    <a href="{% url 'login' %}" class="btn btn-primary btn-lg scale-item">Log in</a>
+    <a href="{% url 'signup' %}" class="btn btn-primary btn-lg scale-item">Sign up</a>
+</div>
+{% endblock %}

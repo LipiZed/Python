@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}Articles{% endblock %}
+
+{% block content %}
+    <h1 class = 'text-center mb-3'>All articles</h1>
+    <div class="sort-controls text-center mb-3">
+        <form class = '' action = "#" method="get">
+            <label for="sort">Sort by:</label>
+            <select name="sort" id="sort">
+                {% if sort == 'date' %}
+                    <option value="date" selected>Date</option>
+                {% else %}
+                    <option value="date">Date</option>
+                {% endif %}
+
+                {% if sort == 'title' %}
+                    <option value="title" selected>Title</option>
+                {% else %}
+                    <option value="title">Title</option>
+                {% endif %}
+
+                {% if sort == 'author' %}
+                    <option value="author" selected>Author</option>
+                {% else %}
+                    <option value="author">Author</option>
+                {% endif %}
+            </select>
+            <button type="submit" class="btn-success">Sort</button>
+        </form>
+    </div>
+    {% for article in object_list %}
+        <div class = "container">
+            <div class="card">
+                <div class = "card-header">
+                    <a class = "text-link font-weight-bold" href="{% url 'article_detail' article.slug %}"> {{ article.title }}</a>
+                    <span class = 'text-muted'> {{ article.author.username }} | {{ article.date }}</span>
+                </div>
+                <div class = 'card-body'>
+                    <span class = "truncate"> {{ article.body }} </span>
+                </div>
+            </div>
+        </div>
+        <br />
+    {% endfor %}
+    <div class="container pagination card text-black text-center border-secondary">
+        <span class="card-body">
+            {% if page_obj.has_previous %}
+                <a href="?sort={{ sort }}&page=1" class = 'text-link'>&laquo; first</a>
+                <a href="?sort={{ sort }}&page={{ page_obj.previous_page_number }}" class="text-link">previous</a>
+            {% endif %}
+
+            <span class="current">
+                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+            </span>
+
+            {% if page_obj.has_next %}
+                <a href="?sort={{ sort }}&page={{ page_obj.next_page_number }}" class="text-link">next</a>
+                <a href="?sort={{ sort }}&page={{ page_obj.paginator.num_pages }}" class="text-link">last &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+{% endblock %}
